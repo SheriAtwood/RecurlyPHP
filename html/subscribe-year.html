@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>RecurlyJS Subscribe Example</title>
+<link rel="stylesheet" href="themes/recurly.css" type="text/css" />
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+<script src="recurly.min.js"></script>
+
+<script>
+  Recurly.config({
+    subdomain: 'supportpay',
+    currency: 'USD'
+  });
+  Recurly.buildSubscriptionForm({
+    target: '#recurly-subscribe',
+    // Signature must be generated server-side with a utility method provided
+    // in client libraries.
+    signature: '<%= @signature %>',
+    successURL: 'confirmation.html',
+    planCode: 'innovator-yearly',
+    distinguishContactFromBillingInfo: false,
+    collectCompany: false,
+    collectContact: true,
+    termsOfServiceURL: 'http://supportpay.com/contact/terms-of-use/',
+    acceptPaypal: false,
+    acceptedCards: ['mastercard',
+                    'discover',
+                    'american_express',
+                    'visa'],
+
+
+  });
+</script>
+</head>
+  <body>
+    <h1>Subscribe to Plan</h1>
+    <h2>Plan Code: Innovator - Yearly</h2>
+    <div id="recurly-subscribe">
+    </div>
+  </body>
+</html>

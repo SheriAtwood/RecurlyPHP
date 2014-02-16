@@ -1,0 +1,60 @@
+<?php
+require_once('lib/recurly.php');
+
+
+Recurly_Client::$subdomain = 'supportpay'
+Recurly_Client::$apiKey = '3d301163be884aa5935baa1b76bc50a7';
+Recurly_js::$privateKey = 'a26316e92322494689c59a1d65b72e5b';
+ 
+$signature = Recurly_js::sign(array(
+  'account'=>array(
+    'account_code'=>'email'
+  ),
+  'subscription' => array(
+    'plan_code' => 'innovator',
+  )
+)); 
+
+
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>RecurlyJS Subscribe Example</title>
+<link rel="stylesheet" href="css/recurly.css" type="text/css" />
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+<script src="js/recurly.min.js"></script>
+
+<script>
+  Recurly.config({
+    subdomain: '<?php echo "supportpay";?>',
+    currency: 'USD'
+  });
+  Recurly.buildSubscriptionForm({
+    target: '#recurly-subscribe',  
+    signature: '<?php echo $signature;?>',
+    successURL: 'confirmation.html',
+    planCode: 'innovator',
+    distinguishContactFromBillingInfo: false,
+    collectCompany: false,
+    collectContact: true,
+    termsOfServiceURL: 'http://supportpay.com/contact/terms-of-use/',
+    acceptPaypal: false,
+    acceptedCards: ['mastercard',
+                    'discover',
+                    'american_express',
+                    'visa'],
+    
+
+  });
+</script>
+</head>
+  <body>
+    <h1>Subscribe to Plan</h1>
+    <h2>Subscribe Test</h2>
+    <div id="recurly-subscribe">
+    </div>
+  </body>
+</html>
+
+$result = Recurly_js::fetch($_POST['recurly_token']);
+?>
