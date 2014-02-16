@@ -45,8 +45,7 @@ distinguishContactFromBillingInfo: false,
     </script>
 </head>
   <body>
-    <h1>Subscribe to Plan</h1>
-    <h2>Plan Code: Innovator - Yearly4</h2>
+    <div class="subscription-logo"></div>    
     <div id="recurly-subscribe">
     </div>
   </body>

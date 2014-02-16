@@ -30,8 +30,8 @@
 
 </head>
   <body>
-    <h1>Update Billing Info</h1>
-    <h2>Account Code: testaccount</h2>
+    <div class="subscription-logo"></div>    
+    <h2>Update Billing Information</h2>
     <div id="recurly-update-billing-info">
     </div>
   </body>
