@@ -9,7 +9,7 @@ ini_set("display_errors", 1);
 //In Canvas via SignedRequest/POST, the authentication should be passed via the signed_request header
 //You can also use OAuth/GET based flows
 $signedRequest = $_REQUEST['signed_request'];
-$consumer_secret = $_ENV['secret'];
+$consumer_secret = $_ENV['2342042923122547944'];
 
 if ($signedRequest == null || $consumer_secret == null) {
    echo "Error: Signed Request or Consumer Secret not found";
