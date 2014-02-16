@@ -1,32 +1,26 @@
 <?php
-require_once('lib/recurly.php');
-
-
-Recurly_Client::$subdomain = 'supportpay'
+require_once ('lib/recurly.php');
+// Required for the API
+Recurly_Client::$subdomain = 'supportpay';
 Recurly_Client::$apiKey = '3d301163be884aa5935baa1b76bc50a7';
 Recurly_js::$privateKey = 'a26316e92322494689c59a1d65b72e5b';
- 
-$signature = Recurly_js::sign(array(
-  'account'=>array(
-    'account_code'=>'email'
-  ),
-  'subscription' => array(
-    'plan_code' => 'innovator',
-  )
-)); 
-$result = Recurly_js::fetch($_POST['recurly_token']);
+$planCode = 'innovator';
+$currency = 'USD';
+$signature = Recurly_js::sign(array($planCode));     
+?>
 
 <html lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>RecurlyJS Subscribe Example</title>
+<title>Innovator Monthly Subscription</title>
 <link rel="stylesheet" href="css/recurly.css" type="text/css" />
-<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
-<script src="js/recurly.min.js"></script>
+<script src="/js/jquery.js"></script>
+<script src="/js/recurly.js"></script>
 
 <script>
+
   Recurly.config({
-    subdomain: '<?php echo "supportpay";?>',
+    subdomain: 'supportpay',
     currency: 'USD'
   });
   Recurly.buildSubscriptionForm({
@@ -50,7 +44,7 @@ $result = Recurly_js::fetch($_POST['recurly_token']);
 </head>
   <body>
     <h1>Subscribe to Plan</h1>
-    <h2>Subscribe Test</h2>
+    <h2>Subscribe Test3</h2>
     <div id="recurly-subscribe">
     </div>
   </body>

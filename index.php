@@ -1,22 +1,5 @@
 <?php
 require_once('lib/recurly.php');
-require_once('FirePHPCore/FirePHP.class.php');
-$firephp = FirePHP::getInstance(true);
-$firephp-> *
- 
-require_once('FirePHPCore/fb.php');
-FB:: *
- 
-$firephp->setEnabled(false);  // or FB::
- 
-FB::send(/* See fb() */);
-
-// Required for the API
-Recurly_Client::$subdomain = 'supportpay';
-Recurly_Client::$apiKey = '3d301163be884aa5935baa1b76bc50a7';
-
-// Optional for Recurly.js:
-Recurly_js::$privateKey = 'a26316e92322494689c59a1d65b72e5b';
 ?>
 <html>
  <head>
@@ -26,7 +9,7 @@ Recurly_js::$privateKey = 'a26316e92322494689c59a1d65b72e5b';
  <title>Subscription Options | SupportPay</title>
 <link href="//fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700" rel="stylesheet" type="text/css" />
 <link href="//fonts.googleapis.com/css?family=Roboto+Slab:400,700" rel="stylesheet" type="text/css" /> 
- <script src="js/jquery-1.10.2.min.js"></script>
+ <script src="js/jquery.js"></script>
 <script src="js/jquery.colorbox-min.js"></script>
 <!--[if lte IE 7]><apex:includescript src="/resource/1384554884000/js/lte-ie7.js "></script><![endif]-->
  </head>
@@ -70,9 +53,9 @@ Recurly_js::$privateKey = 'a26316e92322494689c59a1d65b72e5b';
              <li class="w-pricing-item-feature">
               All Your Child Finances in One Location             </li></ul>                      </div>                       </div>
 <div class="mt10 mb10">
-             <a class="btn btn-link mt10" href="#" onClick="MyWindow=window.open('http://supportpay.com/products/#features',                 'MyWindow','width=900,heig&#8204;ht=700'); return false;">And all these features</a>
+             <a class="btn btn-link mt10" href="#" onClick="MyWindow=window.open('http://supportpay.com/products/#features','MyWindow','width=900,heig&#8204;ht=700'); return false;">And all these features</a>
 </div>           <div class="w-pricing-item-footer">
-                <a class="btn btn-success btn-large" href="subscribe.php">
+                <a class="btn btn-success btn-large" href="innovator.php">
              <small>I WANT THE </small><br />INNOVATOR DEAL TEST</a>           </div>          </div>         </div>
           <div class="w-pricing-item type_featured">
            <div class="w-pricing-item-h yearly">
@@ -91,7 +74,7 @@ Recurly_js::$privateKey = 'a26316e92322494689c59a1d65b72e5b';
                 <li class="w-pricing-item-feature">This deal <div class="orange"><strong>WILL NOT LAST
                     </strong></div>             </li> </ul>               </div>
             <div class="w-pricing-item-footer type_primary w-pricing-item-footer-primary">
-          <a class="btn btn-warning btn-large" href="subscribe-year.php"> <small>GIVE ME THE </small>
+          <a class="btn btn-warning btn-large" href="innovator_yearly.php"> <small>GIVE ME THE </small>
              <br />YEARLY DEAL</a></div></div></div>
  <div class="w-pricing-item type_mobile">
            <div class="w-pricing-item-h mobile ">
