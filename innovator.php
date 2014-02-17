@@ -60,8 +60,10 @@ $signature = Recurly_js::sign(array($planCode));
 </script>
 </head>
   <body>
-   <div class="subscription-logo"></div>    
-    <div id="recurly-subscribe">
+   <div id="recurly-subscribe">
+   <div class="subscription-logo"></div>
+   <div class="border-dash"></div>    
+ 
     </div>
   </body>
 </html>
