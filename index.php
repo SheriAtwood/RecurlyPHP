@@ -11,7 +11,7 @@ $account = $subscription->account->get();
 print $account->account_code;
 
 $currency = 'USD';
-$signature = Recurly_js::sign(array($accountCode));
+$signature = Recurly_js::sign(array($account));
 ?>
 <html>
   <head>
