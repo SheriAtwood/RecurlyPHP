@@ -56,7 +56,7 @@ require_once('lib/recurly.php');
              <a class="btn btn-link mt10" href="#" onClick="MyWindow=window.open('http://supportpay.com/products/#features','MyWindow','width=900,heig&#8204;ht=700'); return false;">And all these features</a>
 </div>           <div class="w-pricing-item-footer">
                 <a class="btn btn-success btn-large" href="innovator.php">
-             <small>I WANT THE </small><br />INNOVATOR DEAL TEST</a>           </div>          </div>         </div>
+             <small>I WANT THE </small><br />INNOVATOR DEAL</a>           </div>          </div>         </div>
           <div class="w-pricing-item type_featured">
            <div class="w-pricing-item-h yearly">
             <div class="w-pricing-item-header">

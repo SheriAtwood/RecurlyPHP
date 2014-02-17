@@ -1,31 +1,42 @@
-<!DOCTYPE html>
+<?php
+require_once('lib/recurly.php');
+ 
+// Required for the API
+Recurly_Client::$subdomain = 'supportpay';
+Recurly_Client::$apiKey = '3d301163be884aa5935baa1b76bc50a7';
+Recurly_js::$privateKey = 'a26316e92322494689c59a1d65b72e5b';
+$planCode = 'innovator-yearly';
+$currency = 'USD';
+$signature = Recurly_js::sign(array($planCode));     
+?>
 <html lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>RecurlyJS Update Billing Info Example</title>
-<link rel="stylesheet" href="examples.css" type="text/css" />
-<link rel="stylesheet" href="../themes/default/recurly.css" type="text/css" />
-<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
-<script src="../build/recurly.js"></script>
-
-<script>
+<title>Innovator Yearly Subscription</title>
+<html>
+  <head>
+  <link rel="stylesheet" href="css/recurly.css" type="text/css" />
+<script src="js/jquery.js"></script>
+<script src="js/recurly.js"></script>
+    <script>
+    $(function(){
   Recurly.config({
-    subdomain: 'recurlyjsdemo-test',
-    currency: 'GBP',
-    country: 'GB',
-    VATPercent: 10
+    subdomain: 'supportpay',
+    currency: 'USD',
+    country: 'US'
   });
 
   Recurly.buildBillingInfoUpdateForm({
     target: '#recurly-update-billing-info',
     // Signature must be generated server-side with a utility method provided
     // in client libraries.
-    signature: 'needs-server-support-code',
+    signature: '<?php echo $signature;?>',
     successURL: 'confirmation.html',
-    accountCode: 'testaccount',
+    accountCode: '',
     collectContactInfo: true,
-    distinguishContactFromBillingInfo: true
+    distinguishContactFromBillingInfo: false
   });
+   });
 </script>
 
 </head>
@@ -33,6 +44,8 @@
     <div class="subscription-logo"></div>    
     <h2>Update Billing Information</h2>
     <div id="recurly-update-billing-info">
+     <div class="subscription-logo"></div>
+   <div class="border-dash"></div>    
     </div>
   </body>
 </html>
