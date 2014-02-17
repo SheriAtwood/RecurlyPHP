@@ -4,7 +4,13 @@ require_once ('lib/recurly.php');
 Recurly_Client::$subdomain = 'supportpay';
 Recurly_Client::$apiKey = '3d301163be884aa5935baa1b76bc50a7';
 Recurly_js::$privateKey = 'a26316e92322494689c59a1d65b72e5b';
-$accountCode = 'email'$currency = 'USD';
+$subscription = Recurly_Subscription::get('3d301163be884aa5935baa1b76bc50a7');
+
+/* fetch the account */
+$account = $subscription->account->get();
+print $account->account_code;
+
+$currency = 'USD';
 $signature = Recurly_js::sign(array($accountCode));
 ?>
 <html>
@@ -12,13 +18,16 @@ $signature = Recurly_js::sign(array($accountCode));
   <title>My Subscription | SupportPay</title>
     <link rel="stylesheet" href="css/pricing.css"type="text/css" /> 
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
- <title>Subscription Options | SupportPay</title>
 <link href="//fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700" rel="stylesheet" type="text/css" />
 <link href="//fonts.googleapis.com/css?family=Roboto+Slab:400,700" rel="stylesheet" type="text/css" /> 
- <script src="js/jquery.js"></script>
-<script src="js/jquery.colorbox-min.js"></script>
-    <script>
+<link rel="stylesheet" href="css/pricing.css"type="text/css" /> 
+<link rel="stylesheet" href="css/recurly.css" type="text/css" />
+<script src="js/jquery.js"></script>
+<script src="js/recurly.js"></script>
+     <script>
 
+     var j$ = jQuery.noConflict();
+ j$(function(){
   Recurly.config({
     subdomain: 'supportpay'
   });
@@ -29,8 +38,9 @@ $signature = Recurly_js::sign(array($accountCode));
     // in client libraries.
     signature: '<?php echo $signature; ?>',
     successURL: 'confirmation.html',
-    accountCode: ''
+    accountCode: '<?php echo $account; ?>'
   });
+   });
  </script>
 <!--[if lte IE 7]><apex:includescript src="/resource/1384554884000/js/lte-ie7.js "></script><![endif]-->
  </head>
@@ -43,7 +53,7 @@ $signature = Recurly_js::sign(array($accountCode));
         </div>                    
                 
     <div class="outline outline-info">
-        <div class="outline-header">SupportPay Subscription</div>
+        <div class="outline-header"></div>
         <div class="outline-body">  
         <div class="row">
         <div class="span8">        
@@ -53,7 +63,11 @@ $signature = Recurly_js::sign(array($accountCode));
         <a class="btn btn-success btn-large mt5"  href="/subscriptions">       
             Change Subscriptions</a> 
             </div>
-            </div>        
+
+            <div class="span4">        
+        <a class="btn btn-warning btn-large mt5"  href="https://:subdomain.recurly.com/account/:hosted_login_token">
+              AUTOLOGIN
+            </a> </div>     
  </div>
    </div>
         </div>        
