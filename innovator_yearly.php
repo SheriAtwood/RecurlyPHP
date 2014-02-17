@@ -45,8 +45,9 @@ distinguishContactFromBillingInfo: false,
     </script>
 </head>
   <body>
-    <div class="subscription-logo"></div>    
+     
     <div id="recurly-subscribe">
+  
     </div>
   </body>
 </html>

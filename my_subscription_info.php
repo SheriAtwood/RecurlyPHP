@@ -44,8 +44,7 @@ $signature = Recurly_js::sign(array($planCode));
     <div class="subscription-logo"></div>    
     <h2>Update Billing Information</h2>
     <div id="recurly-update-billing-info">
-     <div class="subscription-logo"></div>
-   <div class="border-dash"></div>    
+ 
     </div>
   </body>
 </html>

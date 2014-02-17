@@ -14,11 +14,10 @@ $signature = Recurly_js::sign(array($planCode));
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <title>Innovator Monthly Subscription</title>
 <link rel="stylesheet" href="css/recurly.css" type="text/css" />
-<script src="/js/jquery.js"></script>
-<script src="/js/recurly.js"></script>
-
-<script>
-
+<script src="js/jquery.js"></script>
+<script src="js/recurly.js"></script>
+ <script>
+    $(function(){
   Recurly.config({
     subdomain: 'supportpay',
     currency: 'USD'
@@ -42,8 +41,7 @@ $signature = Recurly_js::sign(array($planCode));
 	    firstName: ''
 	  , lastName: ''
 	  , email: ''
-	  , phone: ''
-	  , companyName: ''
+	  
 	  }
 	, billingInfo: {
 	    firstName: ''
@@ -57,12 +55,14 @@ $signature = Recurly_js::sign(array($planCode));
 	  }    
 
   });
+   });
 </script>
 </head>
   <body>
+  
    <div id="recurly-subscribe">
-   <div class="subscription-logo"></div>
-   <div class="border-dash"></div>    
+   
+    
  
     </div>
   </body>
