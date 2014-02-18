@@ -6,7 +6,13 @@ Recurly_Client::$apiKey = '3d301163be884aa5935baa1b76bc50a7';
 Recurly_js::$privateKey = 'a26316e92322494689c59a1d65b72e5b';
 //$accountCode = 'email'
 $currency = 'USD';
-$signature = Recurly_js::sign();
+try {
+  $account = Recurly_Account::get('1');
+  print "Account: $account\n";
+} catch (Recurly_NotFoundError $e) {
+  print "Account not found.\n";
+}
+$signature = Recurly_js::sign(array($account)); 
 ?>
 <html>
   <head>
@@ -31,7 +37,7 @@ $signature = Recurly_js::sign();
     // in client libraries.
     signature: '<?php echo $signature; ?>',
     successURL: 'confirmation.html',
-   // accountCode: '<?php echo $accountCode; ?>'
+   accountCode: '<?php echo $account; ?>'
   });
    });
  </script>

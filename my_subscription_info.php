@@ -5,9 +5,9 @@ require_once('lib/recurly.php');
 Recurly_Client::$subdomain = 'supportpay';
 Recurly_Client::$apiKey = '3d301163be884aa5935baa1b76bc50a7';
 Recurly_js::$privateKey = 'a26316e92322494689c59a1d65b72e5b';
-$planCode = 'innovator-yearly';
+//$planCode = 'innovator-yearly';
 $currency = 'USD';
-$signature = Recurly_js::sign(array($planCode)); 
+$signature = Recurly_js::sign(array($subscription)); 
 $subscription = Recurly_Subscription::get();
 /* fetch the account */
 $account = $subscription->account->get();
@@ -36,7 +36,7 @@ print $account->account_code;
     // in client libraries.
     signature: '<?php echo $signature;?>',
     successURL: 'confirmation.html',
-    accountCode: '',
+    accountCode: '<?php echo $subscription;?>',,
     collectContactInfo: true,
     distinguishContactFromBillingInfo: false
   });
