@@ -4,9 +4,9 @@ require_once ('lib/recurly.php');
 Recurly_Client::$subdomain = 'supportpay';
 Recurly_Client::$apiKey = '3d301163be884aa5935baa1b76bc50a7';
 Recurly_js::$privateKey = 'a26316e92322494689c59a1d65b72e5b';
-$accountCode = 'email'
+//$accountCode = 'email'
 $currency = 'USD';
-$signature = Recurly_js::sign(array);
+$signature = Recurly_js::sign();
 ?>
 <html>
   <head>
@@ -31,7 +31,7 @@ $signature = Recurly_js::sign(array);
     // in client libraries.
     signature: '<?php echo $signature; ?>',
     successURL: 'confirmation.html',
-    accountCode: '<?php echo $accountCode; ?>'
+   // accountCode: '<?php echo $accountCode; ?>'
   });
    });
  </script>
